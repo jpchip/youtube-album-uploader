@@ -1,0 +1,25 @@
+{
+  "name": "youtube-album-uploader",
+  "version": "0.0.1",
+  "description": "Uploads mp3 album to Youtube",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive test"
+  },
+  "keywords": [
+    "mp3",
+    "youtube",
+    "album",
+    "music"
+  ],
+  "author": "Jared Chapiewsky",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4"
+  },
+  "dependencies": {
+    "fluent-ffmpeg": "^2.0.1",
+    "flv": "0.0.1"
+  }
+}

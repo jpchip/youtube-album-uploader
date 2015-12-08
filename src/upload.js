@@ -4,8 +4,6 @@ ReadJson = require("r-json"),
 Lien = require("lien"),
 Opn = require("opn");
 
-var oauth = require('./oauth');
-
 /**
 * @param {string} credentialsPath (eg. credentials.json)
 * @param {string} videoPath (eg. video.mp4)

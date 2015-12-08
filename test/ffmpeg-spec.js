@@ -3,6 +3,8 @@ var FfmpegCommand = require('fluent-ffmpeg');
 var chai = require('chai');
 var expect = chai.expect;
 
+var fileExists = require('../src/fileExists');
+
 describe('ffmpeg', function() {
 	
 	describe('encode', function () {
@@ -34,12 +36,13 @@ describe('ffmpeg', function() {
 		});
 		
 		afterEach(function() {
-			fs.unlink('test/anchor.mp4');
+			if(fileExists('test/anchor.mp4')) {
+				fs.unlink('test/anchor.mp4');
+			}
 		});
 	
 		it('should create mp4 from mp3 and image', function () {
-			var stats = fs.lstatSync('test/anchor.mp4');
-			expect(stats.isFile()).to.equal(true);
+			expect(fileExists('test/anchor.mp4')).to.equal(true);
 		})
 	});
 	
@@ -59,12 +62,13 @@ describe('ffmpeg', function() {
 		});
 		
 		afterEach(function() {
-			fs.unlink('test/concat.mp3');
+			if(fileExists('test/concat.mp3')) {
+				fs.unlink('test/concat.mp3');
+			}
 		});
 	
 		it('should concat mp3 files', function () {
-			var stats = fs.lstatSync('test/concat.mp3');
-			expect(stats.isFile()).to.equal(true);
+			expect(fileExists('test/concat.mp3')).to.equal(true);
 		})
 	});
 	

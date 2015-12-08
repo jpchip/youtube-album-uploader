@@ -2,11 +2,12 @@ var chai = require('chai');
 var expect = chai.expect;
 
 var fs = require('fs');
+var fileExists = require('../src/fileExists');
 var concatMp3s = require('../src/concatMp3s');
 
 describe('concatMp3s', function() {
 	
-	describe('concatMp3s', function() {
+	describe('on success', function() {
 		var results;
 		beforeEach(function(done) {
 			this.timeout(50000);
@@ -19,12 +20,13 @@ describe('concatMp3s', function() {
 		});
 		
 		afterEach(function() {
-			fs.unlink('test/output.mp3');
+			if(fileExists('test/output.mp3')) {
+				fs.unlink('test/output.mp3');
+			}
 		});
 
 		it('should create output.mp3', function () {
-			var stats = fs.lstatSync('test/output.mp3');
-			expect(stats.isFile()).to.equal(true);
+			expect(fileExists('test/output.mp3')).to.equal(true);
 			expect(results).to.be.true;
 		});
 	});

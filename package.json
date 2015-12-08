@@ -20,6 +20,8 @@
   },
   "dependencies": {
     "fluent-ffmpeg": "^2.0.1",
-    "flv": "0.0.1"
+    "flv": "0.0.1",
+    "googleapis": "^2.1.6",
+    "id3js": "^1.1.3"
   }
 }

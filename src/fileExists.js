@@ -1,0 +1,1 @@
+var fs = require('fs');/*** checks if given file exists syncronously * @param {string} filePath (eg. /path/to/file.thing)* @returns {boolean}*/module.exports = function (filePath) {    try    {        return fs.statSync(filePath).isFile();    }    catch (err)    {        return false;    }} 

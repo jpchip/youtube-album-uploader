@@ -30,5 +30,5 @@ module.exports = function (directory, extension, callback) {
  * This callback is displayed as part of the filterFileList class.
  * @callback filterFileList~requestCallback
  * @param {null|*} err
- * @param {array} data
+ * @param {array} data list of found file names
  */

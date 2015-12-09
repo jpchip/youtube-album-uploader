@@ -1,10 +1,13 @@
 {
   "name": "youtube-album-uploader",
   "version": "0.0.1",
-  "description": "Uploads mp3 album to Youtube",
+  "description": "Uploads an mp3 album to Youtube",
   "main": "index.js",
   "scripts": {
     "test": "mocha --recursive test"
+  },
+  "bin": {
+    "youtube-album-uploader": "index.js"
   },
   "keywords": [
     "mp3",

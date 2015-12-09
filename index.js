@@ -1,6 +1,7 @@
 /**
 * Main file of app
 * @example node index.js "/path/to/music/folder"
+* 
 */
 
 var concatMp3s = require('./src/concatMp3s'),
@@ -31,6 +32,10 @@ albumInfo(albumDir, function (err, albumData) {
 		console.log(err);
 		return;
 	}
+	if(!albumData) {
+		console.log('Could not read metadata of mp3s in given directory.');
+		return;
+	}
 	
 	console.log('Creating video...');
 	concatMp3s(albumDir, 'album.mp3', function(err, concatSuccess) {
@@ -55,6 +60,7 @@ albumInfo(albumDir, function (err, albumData) {
 					return;
 				}
 				console.log('Video uploaded successfully!');
+				cleanUp();
 			});
 		});
 	});

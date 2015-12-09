@@ -11,13 +11,17 @@ Requires [ffmpeg](https://www.ffmpeg.org/) be installed. On windows, make sure t
     FFPROBE_PATH - C:\ffmpeg\bin\ffprobe.exe
     FFMPEG_PATH - C:\ffmpeg\bin\ffmpeg.exe
 
+It also requires Google OAuth2 credentials. The basics of Google's OAuth2 implementation is explained on [Google Authorization and Authentication documentation](https://developers.google.com/accounts/docs/OAuth2Login). 
 
+There is a [good tutorial here](https://www.codementor.io/nodejs/tutorial/uploading-videos-to-youtube-with-nodejs-google-api) on getting a credentials.json file. Once you download it, put in the root of the oyutube-album-uploader directory.
+
+If you happen to already have a CLIENT_ID, PROJECT_ID, and CLIENT_SECRET you can just copy `credentials.json.example` to `credentials.json` and replace these parameters.
+
+## INSTALLATION
 
 You can install youtube-album-uploader using npm:
 
     npm install -g youtube-album-uploader
-    
-    
     
 ## Usage 
 

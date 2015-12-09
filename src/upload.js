@@ -13,7 +13,7 @@ Opn = require("opn");
 module.exports = function (credentialsPath, videoPath, options, callback) {
 
 	// Copy the downloaded JSON file in `credentials.json`
-	const CREDENTIALS = ReadJson(credentialsPath);
+	var CREDENTIALS = ReadJson(credentialsPath);
 	
 	var title = options.title || '';
 	var description = options.description || 'video upload via youtube-album-uploader';
@@ -41,7 +41,7 @@ module.exports = function (credentialsPath, videoPath, options, callback) {
 
 	// Here we're waiting for the OAuth2 redirect containing the auth code
 	server.page.add("/oauth2callback", function (lien) {
-		console.log("Trying to get the token using the following code: " + lien.search.code);
+		//console.log("Trying to get the token using the following code: " + lien.search.code);
 
 		// Get the access token
 		oauth.getToken(lien.search.code, function(err, tokens) {

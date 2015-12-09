@@ -1,7 +1,10 @@
+#! /usr/bin/env node
+
 /**
-* Main file of app
+* Main file of application. Giving a path to a folder of mp3s,
+* tries to concat them together, create a video, and upload it to youtube.
+* @example youtube-album-uploader "/path/to/music/folder"
 * @example node index.js "/path/to/music/folder"
-* 
 */
 
 var concatMp3s = require('./src/concatMp3s'),
@@ -37,7 +40,7 @@ albumInfo(albumDir, function (err, albumData) {
 		return;
 	}
 	
-	console.log('Creating video...');
+	console.log('Creating video (this will take awhile)...');
 	concatMp3s(albumDir, 'album.mp3', function(err, concatSuccess) {
 		if(err) {
 			console.log(err);

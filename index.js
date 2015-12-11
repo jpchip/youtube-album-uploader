@@ -9,6 +9,7 @@
 
 var concatMp3s = require('./src/concatMp3s'),
 albumInfo = require('./src/albumInfo'),
+createVideoDescription = require('./src/createVideoDescription'),
 convert = require('./src/convert'),
 fs = require('fs'),
 path = require('path'),
@@ -21,6 +22,9 @@ if(albumDir === undefined) {
 	return;
 }
 
+/**
+* Removes any temporary files
+*/
 function cleanUp () {
 	if(fs.lstatSync('album.mp3').isFile()) {
 		fs.unlink('album.mp3');
@@ -29,6 +33,8 @@ function cleanUp () {
 		fs.unlink('album.mp4');
 	}
 }
+
+
 
 albumInfo(albumDir, function (err, albumData) {
 	if(err) {
@@ -56,7 +62,13 @@ albumInfo(albumDir, function (err, albumData) {
 			}
 			
 			console.log('Uploading Video...');
-			upload('credentials.json', 'album.mp4', {title: albumData.artist + " - " + albumData.album}, function (err, videoObj) {
+			
+			var uploadOptions = {
+				title: albumData.artist + " - " + albumData.album + ' [FULL ALBUM]',
+				description: createVideoDescription(albumData.tracks)
+			};
+			
+			upload('credentials.json', 'album.mp4', uploadOptions, function (err, videoObj) {
 				if(err) {
 					console.log(err);
 					cleanUp(); 

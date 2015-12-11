@@ -1,6 +1,6 @@
 {
 	"name": "youtube-album-uploader",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"description": "Uploads an mp3 album to Youtube",
 	"preferGlobal": true,
 	"scripts": {

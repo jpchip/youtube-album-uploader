@@ -1,3 +1,5 @@
+before_script:
+ - chmod +x tools/test-travis.sh
 script:
   - tools/test-travis.sh
 language: node_js

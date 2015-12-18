@@ -1,5 +1,9 @@
 # youtube-album-uploader
 
+[![Build
+Status](https://travis-ci.org/jpchip/youtube-album-uploader.svg?branch=master)](https://travis-ci.org/jpchip/youtube-album-uploader)
+
+
 A node CLI to upload an mp3 album to youtube. 
 
 `youtube-album-uploader "/path/to/music/folder"`

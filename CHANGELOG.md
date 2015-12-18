@@ -1,6 +1,11 @@
 Changelog
 =========
 
+v0.2.1
+-------
+
+ 1. Add travis CI integration
+
 v0.2.0
 -------
 

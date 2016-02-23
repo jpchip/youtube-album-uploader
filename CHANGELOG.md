@@ -1,6 +1,12 @@
 Changelog
 =========
 
+v0.3.0
+-------
+
+ 1. Fix issue with track ordering (Issue #3)
+
+
 v0.2.1
 -------
 

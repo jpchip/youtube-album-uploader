@@ -1,4 +1,4 @@
-var filterFileList = require('./filterFileList');
+var albumInfo = require('./albumInfo');
 var path = require('path');
 var FfmpegCommand = require('fluent-ffmpeg');
 
@@ -9,16 +9,16 @@ var FfmpegCommand = require('fluent-ffmpeg');
 * @param {function} callback
 */
 module.exports = function (directory, output, callback) {
-
-	filterFileList(directory, 'mp3', function(err, data) {
+	
+	albumInfo(directory, function(err, data) {
 		if (err) {
 			callback(err, false);
 			return;
 		}
 		
 		var command = new FfmpegCommand();
-		data.forEach(function(file) {
-			command.input(path.join(directory, file));
+		data.tracks.forEach(function(track) {
+			command.input(track.path);
 		});
 			
 		command
@@ -31,5 +31,6 @@ module.exports = function (directory, output, callback) {
 			callback(err, true);
 		})
 		.mergeToFile(output, directory);
+		
 	});
 } 
